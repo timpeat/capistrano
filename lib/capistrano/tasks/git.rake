@@ -58,7 +58,7 @@ namespace :git do
       with fetch(:git_environmental_variables) do
         within repo_path do
           execute :mkdir, '-p', release_path
-          execute :git, :archive, fetch(:branch), '| tar -x -C', release_path
+          execute :git, :archive, fetch(:branch), '| tar -xf - -C', release_path
         end
       end
     end
